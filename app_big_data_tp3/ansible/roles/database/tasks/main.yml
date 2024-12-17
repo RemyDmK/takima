@@ -1,0 +1,14 @@
+---
+- name: Run Database container
+  docker_container:
+    name: tp-database
+    image: remydmk1/tp-devops-database:latest
+    state: started
+    restart_policy: always
+    env:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: devops_db
+      MYSQL_USER: devops_user
+      MYSQL_PASSWORD: devops_password
+    networks:
+      - name: my_network

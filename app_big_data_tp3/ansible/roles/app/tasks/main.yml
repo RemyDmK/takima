@@ -1,0 +1,11 @@
+---
+- name: Run Application container
+  docker_container:
+    name: tp-simple-api
+    image: remydmk1/tp-devops-simple-api:latest
+    state: started
+    restart_policy: always
+    env:
+      DATABASE_URL: mysql://devops_user:devops_password@tp-database:3306/devops_db
+    networks:
+      - name: my_network

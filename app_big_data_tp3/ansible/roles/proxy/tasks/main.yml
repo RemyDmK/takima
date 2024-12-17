@@ -1,0 +1,12 @@
+- name: Run Proxy container
+  docker_container:
+    name: tp-httpd
+    image: remydmk1/tp-devops-httpd:latest
+    state: started
+    restart_policy: always
+    ports:
+      - "80:80"
+    networks:
+      - name: my_network
+    volumes:
+      - "../files/httpd.conf"
