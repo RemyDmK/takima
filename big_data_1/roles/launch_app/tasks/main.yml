@@ -1,0 +1,12 @@
+- name: Launch app container
+  docker_container:
+    name: my_app
+    image: my_app_image:latest
+    env:
+      APP_ENV: production
+      APP_SECRET_KEY: some_secret_key
+    published_ports:
+      - "8080:8080"  # Ensure port 8080 is exposed
+    networks:
+      - name: my_app_network
+    state: started

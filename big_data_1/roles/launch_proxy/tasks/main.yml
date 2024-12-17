@@ -1,0 +1,12 @@
+- name: Launch proxy container
+  docker_container:
+    name: my_proxy
+    image: httpd:latest
+    published_ports:
+      - "8081:80"  # Maps port 80 inside the container to 8080 on the host
+    volumes:
+      - /home/remyd/tp3_big_data/big_data_1/http-server/httpd.conf
+
+    networks:
+      - name: my_app_network
+    state: started
